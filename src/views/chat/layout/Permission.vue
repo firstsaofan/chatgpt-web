@@ -74,6 +74,14 @@ function handlePress(event: KeyboardEvent) {
         >
           {{ $t('common.verify') }}
         </NButton>
+        <header class="space-y-2">
+          <h2 class="text-2xl font-bold text-center text-slate-800 dark:text-neutral-200">
+            免责声明
+          </h2>
+          <p class="text-base text-center text-slate-500 dark:text-slate-500">
+            {{ $t('common.disclaimers') }}
+          </p>
+        </header>
       </div>
     </div>
   </NModal>
