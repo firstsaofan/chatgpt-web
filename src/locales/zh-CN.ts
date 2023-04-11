@@ -74,6 +74,7 @@ export default {
   },
   store: {
     siderButton: '提示词商店',
+    buyAccount: '账号购买',
     local: '本地',
     online: '在线',
     title: '标题',

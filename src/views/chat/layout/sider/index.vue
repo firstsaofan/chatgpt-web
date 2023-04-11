@@ -83,8 +83,8 @@ watch(
           <List />
         </div>
         <div class="p-4">
-          <NButton @click="goToGithub">
-              出售账号
+          <NButton block @click="goToGithub">
+            {{ $t('store.buyAccount') }}
           </NButton>
         </div>
         
