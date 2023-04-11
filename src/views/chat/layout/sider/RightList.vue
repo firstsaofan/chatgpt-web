@@ -2,7 +2,7 @@
 import type { CSSProperties } from 'vue'
 import { computed, ref, watch } from 'vue'
 import { NButton, NLayoutSider } from 'naive-ui'
-import List from './List.vue'
+import List from './ListRight.vue'
 import Footer from './Footer.vue'
 import { useAppStore, useChatStore } from '@/store'
 import { useBasicLayout } from '@/hooks/useBasicLayout'
@@ -21,9 +21,6 @@ function handleAdd() {
   if (isMobile.value)
     appStore.setSiderCollapsed(true)
 }
-function goToGithub() {
-  window.open("http://pay.raokun.top:10088/", "_blank")
-}
 
 function handleUpdateCollapsed() {
   appStore.setSiderCollapsed(!collapsed.value)
@@ -33,7 +30,7 @@ const getMobileClass = computed<CSSProperties>(() => {
   if (isMobile.value) {
     return {
       position: 'fixed',
-      zIndex: 100,
+      zIndex: 50,
     }
   }
   return {}
@@ -64,7 +61,7 @@ watch(
   <NLayoutSider
     :collapsed="collapsed"
     :collapsed-width="0"
-    :width="260"
+    :width="400"
     :show-trigger="isMobile ? false : 'arrow-circle'"
     collapse-mode="transform"
     position="absolute"
@@ -83,17 +80,15 @@ watch(
           <List />
         </div>
         <div class="p-4">
-          <NButton block @click="goToGithub">
-            {{ $t('store.buyAccount') }}
-          </NButton>
-        </div>
-        
-        <div class="p-4">
           <NButton block @click="show = true">
             {{ $t('store.siderButton') }}
           </NButton>
         </div>
-        
+        <div class="p-4">
+          <NButton block @click="show = true">
+            卡密商店
+          </NButton>
+        </div>
       </main>
       <Footer />
     </div>

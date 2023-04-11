@@ -26,6 +26,8 @@ export default {
     failed: '操作失败',
     verify: '验证',
     unauthorizedTips: '未经授权，请先进行验证。',
+    disclaimers: '我们郑重提醒您：任何用户都不允许在chat生产、发布、传播任何违法、违规内容。  用户承诺在chat生产、发布、传播任何违法、违规内容均属于个人行为，与本站无关。',
+    iagree: '我同意协议',
   },
   chat: {
     newChatButton: '新建聊天',
@@ -75,6 +77,7 @@ export default {
   },
   store: {
     siderButton: '提示词商店',
+    buyAccount: '账号购买',
     local: '本地',
     online: '在线',
     title: '标题',

@@ -26,6 +26,8 @@ export default {
     failed: '操作失敗',
     verify: '驗證',
     unauthorizedTips: '未經授權，請先進行驗證。',
+    disclaimers: '',
+    iagree: '我同意协议',
   },
   chat: {
     newChatButton: '新建對話',
@@ -75,6 +77,7 @@ export default {
   },
   store: {
     siderButton: '提示詞商店',
+    buyAccount: '賬號購買',
     local: '本機',
     online: '線上',
     title: '標題',
