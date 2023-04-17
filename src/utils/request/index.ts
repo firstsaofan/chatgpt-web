@@ -32,8 +32,9 @@ function http<T = any>(
       authStore.removeToken()
       window.location.reload()
     }
-
+    //webapi
     return Promise.reject(res.data)
+    // return res.data
   }
 
   const failHandler = (error: Response<Error>) => {

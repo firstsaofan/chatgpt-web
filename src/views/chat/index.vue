@@ -164,8 +164,9 @@ async function onConversation() {
     await fetchChatAPIOnce()
   }
   catch (error: any) {
-    const errorMessage = error?.message ?? t('common.wrong')
-
+    //测试webapi
+    //const errorMessage = error?.message ?? t('common.wrong')
+    const errorMessage = error?.message ?? ''
     if (error.message === 'canceled') {
       updateChatSome(
         +uuid,
@@ -491,7 +492,25 @@ onUnmounted(() => {
           <template v-if="!dataSources.length">
             <div class="flex items-center justify-center mt-4 text-center text-neutral-300">
               <SvgIcon icon="ri:bubble-chart-fill" class="mr-2 text-3xl" />
-              <span>Aha~</span>
+              <span >QQ群：814880639 </span>
+            </div>
+            <div class="flex items-center justify-center mt-4 text-center text-neutral-300">
+              <span >方便第一时间反应使用问题以及更新说明公告</span>
+            </div>
+            <div class="flex items-center justify-center mt-4 text-center text-neutral-300">
+              <span >站点说明：免费用户每天可提问100次,收费用户：不限量</span>
+            </div>
+            <div class="flex items-center justify-center mt-4 text-center text-neutral-300">
+              <span >收费用户点击左下角购买账号选择商品购买即可</span>
+            </div>
+            <div class="flex items-center justify-center mt-4 text-center text-neutral-300">
+              <span >Todo:</span>
+            </div>
+            <div class="flex items-center justify-center mt-4 text-center text-neutral-300">
+              <span >1.接下来会做gpt4以及生图功能。</span>
+            </div>
+            <div class="flex items-center justify-center mt-4 text-center text-neutral-300">
+              <span >2.对接Azure openai</span>
             </div>
           </template>
           <template v-else>

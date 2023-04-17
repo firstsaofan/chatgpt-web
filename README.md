@@ -189,10 +189,11 @@ docker build -t chatgpt-web .
 docker run --name chatgpt-web --rm -it -p 127.0.0.1:3002:3002 --env OPENAI_API_KEY=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 chatgpt-web
 
 # 后台运行
-docker run --name chatgpt-web -d -p 3002:3002 --restart always --env OPENAI_API_KEY=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 --env AUTH_SECRET_KEY=CB27AB32-9E0F-4A25-BC86-BA77DDF99EAA chatgpt-web
+docker run --name chatgpt-web -d -p 4002:3002 --restart always --env OPENAI_API_KEY=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,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 --env AUTH_SECRET_KEY=CB27AB32-9E0F-4A25-BC86-BA77DDF99EAA chatgpt-web
 
 docker run --name chatgpt-web -p 3002:3002 -d chatgpt-web  --env OPENAI_API_KEY=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
-
+# 保存
+docker save -o chatweb.tar chatgpt-web
 # 运行地址
 http://localhost:3002/
 ```
