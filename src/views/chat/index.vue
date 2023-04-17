@@ -510,7 +510,7 @@ onUnmounted(() => {
               <span >1.接下来会做gpt4以及生图功能。</span>
             </div>
             <div class="flex items-center justify-center mt-4 text-center text-neutral-300">
-              <span >2.对接Azure openai</span>
+              <span >2.对接Azure openai等</span>
             </div>
           </template>
           <template v-else>
