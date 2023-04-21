@@ -30,4 +30,5 @@ coverage
 
 # Environment variables files
 /service
-.husky
+.husky/
+.husky/commit-msg

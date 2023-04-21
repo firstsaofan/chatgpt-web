@@ -64,3 +64,10 @@ export function fetchVerify<T>(token: string) {
     data: { token },
   })
 }
+
+export function generateImage<T>(Prompt: string,Count: string) {
+  return post<T>({
+    url: '/GenerateImage',
+    data: { Prompt,Count },
+  })
+}
