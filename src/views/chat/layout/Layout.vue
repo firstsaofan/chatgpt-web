@@ -13,7 +13,9 @@
               </div>
             </NTabPane>
             <NTabPane name="AI绘图" tab="AI绘图">
+              <div class="scrollable" >
               <ImageView/>
+            </div>
             </NTabPane>
           </NTabs>
           <Helped />
@@ -68,7 +70,7 @@ const getContainerClass = computed(() => {
 
 <style scoped>
 .scrollable {
-  height: calc(100vh - 10px);
+  height: calc(100vh - 80px);
   overflow-y: scroll;
 }
 </style>

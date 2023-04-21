@@ -80,8 +80,7 @@
     NSpace,
     NSlider,
     NInputNumber,
-    NRadioGroup,
-    NRadioButton,
+    useMessage
   } from "naive-ui";
   import { ref } from "vue";
   import axios from 'axios';
@@ -89,7 +88,6 @@
   // 定义后端接口的地址
   const apiUrl = "http://43.134.164.127:3113/api";
   // const apiUrl = "http://localhost:5122/api";
-
   export default {
     components: { NImage, NAutoComplete, NInput, NButton, NSpace, NSlider, NInputNumber },
     setup() {
@@ -97,6 +95,7 @@
       const description = ref("");
       const imageUrlList = ref([]);
       const verifycationCode = ref("");
+      const ms = useMessage();
       const submit = async () => {
         const params = {
           Prompt: description.value,
@@ -114,6 +113,10 @@
       // };
       try {
       const response = await axios.post(apiUrl+'/GenerateImage', params);
+      if(response.data.status ==='Fail'){
+        ms.error(response.data.message ?? 'error')
+      return
+      }
       imageUrlList.value = response.data.data.images;
     } catch (error) {
       console.log(`请求失败：${error}`);
