@@ -28,11 +28,10 @@
 
 <script setup lang='ts'>
 import { computed } from 'vue'
-import { NLayout, NLayoutContent ,NCard,
+import { NLayout ,
   NTabs,
   NTabPane,
-  NInputGroup,
-  NImage} from 'naive-ui'
+  } from 'naive-ui'
 import { useRouter } from 'vue-router'
 import Sider from './sider/index.vue'
 import Helped from './helped/index.vue'
