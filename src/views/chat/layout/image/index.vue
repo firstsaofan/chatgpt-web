@@ -86,8 +86,7 @@
   import axios from 'axios';
 
   // 定义后端接口的地址
-  const apiUrl = "http://43.134.164.127:3113/api";
-  // const apiUrl = "http://localhost:5122/api";
+  const apiUrl = import.meta.env.VITE_GLOB_API_URL;
   export default {
     components: { NImage, NAutoComplete, NInput, NButton, NSpace, NSlider, NInputNumber },
     setup() {

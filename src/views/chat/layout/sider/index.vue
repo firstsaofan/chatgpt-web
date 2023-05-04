@@ -22,7 +22,7 @@ function handleAdd() {
     appStore.setSiderCollapsed(true)
 }
 function goToGithub() {
-  window.open("http://pay.raokun.top:10088/", "_blank")
+  window.open("https://fk.firstsaofan.top/", "_blank")
 }
 
 function handleUpdateCollapsed() {

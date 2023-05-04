@@ -7,6 +7,7 @@ import { useAppStore, useUserStore } from '@/store'
 import type { UserInfo } from '@/store/modules/user/helper'
 import { getCurrentDate } from '@/utils/functions'
 import { useBasicLayout } from '@/hooks/useBasicLayout'
+import { useAuthStoreWithout } from '@/store/modules/auth'
 import { t } from '@/locales'
 
 const appStore = useAppStore()
@@ -66,6 +67,8 @@ function updateUserInfo(options: Partial<UserInfo>) {
 
 function handleReset() {
   userStore.resetUserInfo()
+  const authStore = useAuthStoreWithout()
+  authStore.removeToken()
   ms.success(t('common.success'))
   window.location.reload()
 }

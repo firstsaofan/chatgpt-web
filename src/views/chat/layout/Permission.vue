@@ -56,8 +56,8 @@ function handlePress(event: KeyboardEvent) {
     <div class="p-10 bg-white rounded dark:bg-slate-800">
       <div class="space-y-4">
         <header class="space-y-2">
-          <h2 class="text-2xl font-bold text-center text-slate-800 dark:text-neutral-200">
-            获取验证码地址：http://pay.raokun.top:10088/
+          <h2 class="text-2xl font-bold text-center text-slate-800 dark:text-neutral-200" style="word-break: break-all;">
+            获取验证码地址：<br /><a href="https://fk.firstsaofan.top/buy/5" target="_blank">https://fk.firstsaofan.top/</a>
           </h2>
           <p class="text-base text-center text-slate-500 dark:text-slate-500">
             {{ $t('common.unauthorizedTips') }}
