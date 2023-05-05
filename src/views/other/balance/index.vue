@@ -27,6 +27,25 @@
                 <div class="result-value">{{ detail.unUsed.toFixed(3) }}</div>
             </div>
         </div>
+        <!-- 在 .result 元素后添加一个新的 .links 元素 -->
+        <div class="result" v-if="!loading && !errorMsg">
+        <!-- 省略原有的代码 -->
+        </div>
+        <div class="links">
+        <div>
+            <a href="https://fk.firstsaofan.top/" target="_blank">卡密商店：fk.firstsaofan.top</a>
+        </div>
+        <br>
+        <div>
+            <a href="https://ai.firstsaofan.top" target="_blank">gpt网站：ai.firstsaofan.top</a>
+        </div>
+        <br>
+        
+        <div>Design by TerraMours</div>
+        <div>
+            <a href="https://github.com/firstsaofan/TerraMours" target="_blank">https://github.com/firstsaofan/TerraMours</a>
+        </div>
+        </div>
         </div>
       </div>
     </div>
@@ -197,4 +216,22 @@ font-size: 20px;
 font-weight: bold;
 color: red;
 }
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.links div {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.links a {
+  font-size: 20px;
+  color: #007bb5;
+  text-decoration: none;
+}
+
 </style>

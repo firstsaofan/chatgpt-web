@@ -183,7 +183,7 @@ pnpm dev
 #### Docker build & Run
 
 ```bash
-docker build -t chatgpt-web .
+docker build -t chatgpt-web:frontend .
 
 # 前台运行
 docker run --name chatgpt-web --rm -it -p 127.0.0.1:3002:3002 --env OPENAI_API_KEY=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 chatgpt-web
