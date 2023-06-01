@@ -7,6 +7,14 @@
           v-model:value="verifycationCode"
         />
     </div>
+    <div class="flex flex-wrap items-center gap-4">
+      <label>模型选择：</label>
+          <NSelect
+            style="width: 140px"
+            :value="modeltype"
+            :options="modelOptions"
+          />
+        </div>
     <h1 style="font-size: 24px;">图片描述词：</h1>
   <div class="flex items-center justify-between space-x-2">
     <NAutoComplete >
@@ -74,33 +82,44 @@
 <script lang="ts">
   import {
     NImage,
+    NSelect,
     NAutoComplete,
     NInput,
     NButton,
     NSpace,
     NSlider,
     NInputNumber,
-    useMessage
+    useMessage,
+    
   } from "naive-ui";
   import { ref } from "vue";
   import axios from 'axios';
+  import { useAuthStoreWithout } from '@/store/modules/auth'
 
   // 定义后端接口的地址
   const apiUrl = import.meta.env.VITE_GLOB_API_URL;
+
   export default {
-    components: { NImage, NAutoComplete, NInput, NButton, NSpace, NSlider, NInputNumber },
+    components: { NImage, NAutoComplete, NInput, NButton, NSpace, NSlider, NInputNumber,NSelect },
     setup() {
+      const authStore = useAuthStoreWithout();
       const numOfImages = ref(1); // 初始值为1
       const description = ref("");
       const imageUrlList = ref([]);
-      const verifycationCode = ref("");
+      const verifycationCode = ref(authStore.imgKey ?? "");
+      const modeltype= ref(1);
+      const modelOptions: { label: string; value: number }[] = [
+      { label: 'CHATGPT',value: 0 },
+      { label: 'SD',value: 1 },
+    ];
       const ms = useMessage();
       const submit = async () => {
         const params = {
           Prompt: description.value,
           Count: numOfImages.value,
           SizeType: 1,
-          verifycationCode :verifycationCode.value
+          verifycationCode :verifycationCode.value,
+          modelType: modeltype.value
         };
 
       //     axios.post(apiUrl+'/GenerateImage', params)
@@ -112,6 +131,7 @@
       // };
       try {
       const response = await axios.post(apiUrl+'/GenerateImage', params);
+      authStore.setImgKey(verifycationCode.value);
       if(response.data.status ==='Fail'){
         ms.error(response.data.message ?? 'error')
       return
@@ -119,6 +139,7 @@
       imageUrlList.value = response.data.data.images;
     } catch (error) {
       console.log(`请求失败：${error}`);
+      ms.error('报错拉！：'+error);
     }
     console.log("提交的参数：", params); // 在控制台输出提交的参数
   };
@@ -129,7 +150,18 @@
         description,
         verifycationCode,
         imageUrlList,
+        modeltype,
+        modelOptions,
         submit,
+        options: [
+        {
+          label: "Everybody's Got Something to Hide Except Me and My Monkey",
+          value: 0,
+        },
+        {
+          label: 'Drive My Car',
+          value: 1
+        },]
       };
     },
   };
