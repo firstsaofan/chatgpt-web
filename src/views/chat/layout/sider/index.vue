@@ -22,7 +22,7 @@ function handleAdd() {
     appStore.setSiderCollapsed(true)
 }
 function goToGithub() {
-  window.open("https://fk.firstsaofan.top/", "_blank")
+  window.open("https://sp.terramours.site/", "_blank")
 }
 
 function handleUpdateCollapsed() {

@@ -4,7 +4,7 @@
       <div class="h-full" :class="getMobileClass">
         <NLayout class="z-40 transition" :class="getContainerClass" has-sider>
           <Sider />
-          <NTabs type="line" animated>
+          <NTabs type="line" animated v-model:value="selectedTab" @update:value="handleTabChange">
             <NTabPane name="AI聊天模型" tab="AI聊天模型">
               <div class="scrollable" >
                 <RouterView v-slot="{ Component, route }">
@@ -27,11 +27,8 @@
 </template>
 
 <script setup lang='ts'>
-import { computed } from 'vue'
-import { NLayout ,
-  NTabs,
-  NTabPane,
-  } from 'naive-ui'
+import { computed,ref } from 'vue'
+import {NLayout,NTabs,NTabPane} from 'naive-ui'
 import { useRouter } from 'vue-router'
 import Sider from './sider/index.vue'
 import Helped from './helped/index.vue'
@@ -47,7 +44,20 @@ const authStore = useAuthStore()
 
 router.replace({ name: 'Chat', params: { uuid: chatStore.active } })
 
+
 const { isMobile } = useBasicLayout()
+
+const selectedTab = ref("AI聊天模型"); 
+const cachedTab = localStorage.getItem("selectedTab"); // 获取之前缓存的 tab
+
+if (cachedTab) {
+  selectedTab.value = cachedTab; // 如果有缓存，设置当前选中的 tab 为缓存的 tab
+}
+// 当前选中的 tab 发生变化时，缓存选中的 tab
+function handleTabChange(tab: string) {
+  selectedTab.value = tab;
+  localStorage.setItem("selectedTab", tab);
+}
 
 const collapsed = computed(() => appStore.siderCollapsed)
 

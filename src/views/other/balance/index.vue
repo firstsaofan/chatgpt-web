@@ -33,7 +33,7 @@
         </div>
         <div class="links">
         <div>
-            <a href="https://fk.firstsaofan.top/" target="_blank">卡密商店：fk.firstsaofan.top</a>
+            <a href="https://sp.terramours.site/" target="_blank">卡密商店：sp.terramours.site</a>
         </div>
         <br>
         <div>

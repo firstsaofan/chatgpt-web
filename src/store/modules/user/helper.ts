@@ -17,7 +17,7 @@ export function defaultSetting(): UserState {
     userInfo: {
       avatar: 'https://avatars.githubusercontent.com/u/43564692?s=96&v=4',
       name: 'firstsaofan',
-      description: 'Go to <a href="https://www.firstsaofan.top/" class="text-blue-500" target="_blank" >firstsaofan</a>',
+      description: '最新gpt地址： <a href="https://ai.terramours.site/" class="text-blue-500" target="_blank" >ai.terramours.site</a>',
     },
   }
 }
